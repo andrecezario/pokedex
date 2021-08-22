@@ -8,6 +8,7 @@
       <q-img
         class="col"
         :src="image"
+        spinner-color="secondary"
         style="height: 150px; max-width: 150px; margin-top: -64px"
       />
     </q-card-section>
@@ -62,10 +63,7 @@ export default {
       type: String,
       required: true,
     },
-    types: {
-      type: Array,
-      required: true,
-    },
+    types: [],
   },
   data() {
     return {
@@ -78,3 +76,28 @@ export default {
   methods: {},
 };
 </script>
+
+<style scoped>
+.card {
+  z-index: 0;
+  cursor: pointer;
+  position: relative;
+}
+.card:before {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  content: "";
+  opacity: 0.75;
+  position: absolute;
+  background: white;
+}
+.card:hover {
+  transform: scale(1.15);
+}
+.card-text {
+  background: #fff;
+}
+</style>

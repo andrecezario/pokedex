@@ -1,1 +1,26 @@
 // app global css in SCSS form
+.q-tab__label {
+  @media screen and (max-width: 600px) {
+    font-size: 14px;
+  }
+  font-size: 18px;
+}
+.q-tab__icon {
+  @media screen and (max-width: 600px) {
+    width: 28px;
+    height: 28px;
+    font-size: 28px;
+  }
+  width: 32px;
+  height: 32px;
+  font-size: 32px;
+}
+.q-tab__indicator {
+  @media screen and (max-width: 600px) {
+    height: 2.5px;
+  }
+  height: 3.5px;
+}
+body {
+  font-family: "Lato", sans-serif;
+}

@@ -1,31 +1,29 @@
 <template>
-  <div class="fullscreen bg-grey-9 text-white text-center q-pa-md flex flex-center">
+  <div
+    class="fullscreen bg-dark text-white text-center q-pa-md flex flex-center"
+  >
     <div>
-      <div style="font-size: 30vh">
-        404
-      </div>
+      <div style="font-size: 30vh">404</div>
 
-      <div class="text-h2" style="opacity:.4">
-        Oops. Nothing here...
-      </div>
+      <div class="text-h2" style="opacity: 0.4">Página não encontrada...</div>
 
       <q-btn
-        class="q-mt-xl"
-        color="white"
-        text-color="grey-9"
-        unelevated
         to="/"
-        label="Go Home"
         no-caps
+        unelevated
+        color="white"
+        class="q-mt-xl"
+        label="Ir para Home"
+        text-color="grey-9"
       />
     </div>
   </div>
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: 'Error404'
-})
+  name: "Error404",
+});
 </script>

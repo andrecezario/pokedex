@@ -1,23 +1,31 @@
-import axios from 'axios'
-import { Loading, Notify, QSpinnerIos } from 'quasar'
+import axios from "axios";
+import { Loading, Notify, QSpinnerHourglass } from "quasar";
+
+const API = "https://pokeapi.co/api/v2";
 
 const ApiService = {
-
-  async get (resource) {
+  async get(resource) {
     try {
-      Loading.show({ spinner: QSpinnerIos, spinnerSize: 30, backgroundColor: 'grey-7' })
-      const retorno = await axios.get(resource)
-      Loading.hide()
-      return retorno
+      Loading.show({
+        spinnerSize: 64,
+        spinner: QSpinnerHourglass,
+        backgroundColor: "grey-10",
+      });
+      const result = await axios.get(`${API + resource}`);
+      Loading.hide();
+      return result;
     } catch (e) {
       Notify.create({
-        color: 'negative',
-        message: (e.response && e.response.data && e.response.data.mensagem) ? e.response.data.mensagem : 'Erro buscando dados'
-      })
-      Loading.hide()
-      return false
+        color: "negative",
+        message:
+          e.response && e.response.data && e.response.data.mensagem
+            ? e.response.data.mensagem
+            : "Erro buscando dados",
+      });
+      Loading.hide();
+      return false;
     }
   },
-}
+};
 
-export default ApiService
+export default ApiService;

@@ -1,32 +1,33 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header class="bg-grey-9" elevated>
-      <q-toolbar class="row q-px-xl q-py-lg">
-        <q-toolbar-title class="text-h4 text-bold text-white">
-          Pokédex
-        </q-toolbar-title>
-        <q-input
-          dark
-          standout
-          debounce="300"
-          v-model="text"
-          class="col-4"
-          input-class="text-right"
+    <q-header class="bg-dark toolbar">
+      <q-toolbar class="row justify-center items-center q-px-xl q-py-md">
+        <q-avatar>
+          <q-icon
+            name="catching_pokemon"
+            :size="$q.screen.lt.sm ? 'md' : 'lg'"
+          />
+        </q-avatar>
+        <div
+          class="text-h4 q-ml-xs text-bold"
+          :class="$q.screen.lt.sm ? 'text-h6' : 'text-h4'"
         >
-          <template v-slot:append>
-            <q-icon v-if="text === ''" name="search" />
-            <q-icon
-              v-else
-              name="clear"
-              class="cursor-pointer"
-              @click="text = ''"
-            />
-          </template>
-        </q-input>
+          Pokédex
+        </div>
       </q-toolbar>
     </q-header>
+    <q-footer class="bg-dark footer">
+      <q-toolbar></q-toolbar>
+    </q-footer>
     <q-page-container>
       <router-view />
+      <q-page-scroller
+        position="bottom-right"
+        :scroll-offset="150"
+        :offset="[18, 18]"
+      >
+        <q-btn fab icon="keyboard_arrow_up" color="secondary" />
+      </q-page-scroller>
     </q-page-container>
   </q-layout>
 </template>
@@ -36,10 +37,16 @@ import { defineComponent, ref } from "vue";
 
 export default defineComponent({
   name: "Pokedex",
-  data() {
-    return {
-      text: "",
-    };
-  },
 });
 </script>
+
+<style scoped>
+.toolbar {
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+.footer {
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+}
+</style>
