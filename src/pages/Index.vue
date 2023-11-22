@@ -35,7 +35,7 @@
             :types="item.types"
             @click="goPokemon(item.id)"
             :background="types[item.types[0].type.name].color"
-            :image="item.sprites.other['official-artwork'].front_default"
+            :image="item.sprites.other['home'].front_default"
           />
         </div>
       </div>

@@ -35,7 +35,7 @@
           <q-img
             spinner-color="secondary"
             :class="$q.screen.lt.sm ? 'mobile-img' : 'desktop-img'"
-            :src="pokemon.sprites.other['official-artwork'].front_default"
+            :src="pokemon.sprites.other['home'].front_default"
           />
           <div :class="$q.screen.lt.sm ? 'q-pa-md' : 'q-pa-lg'">
             <div
